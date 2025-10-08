@@ -1,8 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import pokeapi from "../api/pokeapi";
 import { Pokemon, SortDir, SortKey } from "../types";
-import SearchBar from "../components/SearchBar";
-import SortControls from "../components/SortControls";
 import PokemonCard from "../components/PokemonCard";
 import { useResults } from "../context/ResultsContext";
 import "./ListView.css";

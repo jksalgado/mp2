@@ -1,0 +1,87 @@
+/* overall layout */
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* 4 cards per row, responsive */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+/* each card */
+.card {
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: var(--card-bg, #cfcfd1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #333;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.card img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  background: white;
+  border-radius: 50%;
+  padding: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.card__title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card__types {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* type badges */
+.type {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  color: rgb(0, 0, 0);
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+
+/* colors per type */
+.type--fire      { background: #ee8130; }
+.type--water     { background: #6390f0; }
+.type--grass     { background: #7ac74c; }
+.type--electric  { background: #f7d02c; color: #333; }
+.type--ice       { background: #96d9d6; color: #333; }
+.type--fighting  { background: #c22e28; }
+.type--poison    { background: #a33ea1; }
+.type--ground    { background: #e2bf65; color: #333; }
+.type--flying    { background: #a98ff3; }
+.type--psychic   { background: #f95587; }
+.type--bug       { background: #a6b91a; color: #333; }
+.type--rock      { background: #b6a136; color: #333; }
+.type--ghost     { background: #735797; }
+.type--dragon    { background: #6f35fc; }
+.type--dark      { background: #705746; }
+.type--steel     { background: #b7b7ce; color: #333; }
+.type--fairy     { background: #d685ad; color: #333; }

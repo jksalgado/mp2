@@ -5,6 +5,7 @@ import SearchBar from "../components/SearchBar";
 import SortControls from "../components/SortControls";
 import PokemonCard from "../components/PokemonCard";
 import { useResults } from "../context/ResultsContext";
+import "./ListView.css";
 
 type Basic = { name: string; url: string };
 
@@ -37,7 +38,6 @@ export default function ListView() {
         if (!alive) return;
         setItems(hydrated);
       } catch {
-        // small offline/mock fallback
         if (!alive) return;
         setItems([]);
       } finally {
@@ -56,9 +56,7 @@ export default function ListView() {
         const cmp = a.name.localeCompare(b.name);
         return sortDir === "asc" ? cmp : -cmp;
       } else {
-        const ax = typeof a.base_experience === "number" ? a.base_experience : 0;
-        const bx = typeof b.base_experience === "number" ? b.base_experience : 0;
-        const cmp = ax - bx;
+        const cmp = a.id - b.id;
         return sortDir === "asc" ? cmp : -cmp;
       }
     });
@@ -73,11 +71,44 @@ export default function ListView() {
 
   return (
     <div className="container">
-      <h2>Search</h2>
-      <div className="row">
-        <SearchBar value={query} onChange={setQuery} />
+      <h2 className="page-title">search</h2>
+
+      {/* Centered Search Bar */}
+      <div className="search-section">
+        <input
+          type="text"
+          className="search-input"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="🔍 Search Pokémon..."
+        />
       </div>
-      <SortControls sortKey={sortKey} sortDir={sortDir} onSortKey={setSortKey} onSortDir={setSortDir} />
+
+      {/* Sort Controls (centered below search) */}
+      <div className="sort-section">
+        <label>
+          Sort by:&nbsp;
+          <select
+            value={sortKey}
+            onChange={(e) => setSortKey(e.target.value as SortKey)}
+            className="sort-select"
+          >
+            <option value="name">Name</option>
+            <option value="id">ID</option>
+          </select>
+        </label>
+        <label>
+          &nbsp;Order:&nbsp;
+          <select
+            value={sortDir}
+            onChange={(e) => setSortDir(e.target.value as SortDir)}
+            className="sort-select"
+          >
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+        </label>
+      </div>
 
       {loading ? (
         <p>Loading Pokémon…</p>
@@ -85,7 +116,9 @@ export default function ListView() {
         <p>No results.</p>
       ) : (
         <div className="grid">
-          {filtered.map((p) => <PokemonCard key={p.id} p={p} />)}
+          {filtered.map((p) => (
+            <PokemonCard key={p.id} p={p} />
+          ))}
         </div>
       )}
     </div>

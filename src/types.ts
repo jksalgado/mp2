@@ -1,5 +1,3 @@
-export type NamedAPIResource = { name: string; url: string };
-
 export type PokemonType = {
   slot: number;
   type: { name: string; url: string };
@@ -12,6 +10,18 @@ export type PokemonSprites = {
   };
 };
 
+export type PokemonAbility = {
+  ability: { name: string; url: string };
+  is_hidden: boolean;
+  slot: number;
+};
+
+export type PokemonStat = {
+  base_stat: number;
+  effort: number;
+  stat: { name: string; url: string };
+};
+
 export type Pokemon = {
   id: number;
   name: string;
@@ -20,7 +30,11 @@ export type Pokemon = {
   base_experience: number;
   types: PokemonType[];
   sprites: PokemonSprites;
+
+  // add these ↓
+  abilities: PokemonAbility[];
+  stats: PokemonStat[];
 };
 
-export type SortKey = "name" | "base_experience";
+export type SortKey = "name" | "id";
 export type SortDir = "asc" | "desc";

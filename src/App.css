@@ -68,6 +68,7 @@ h2 {
 }
 
 /* colors per type */
+.type--normal    { background: #939393; }
 .type--fire      { background: #ee8130; }
 .type--water     { background: #6390f0; }
 .type--grass     { background: #7ac74c; }
@@ -85,3 +86,64 @@ h2 {
 .type--dark      { background: #705746; }
 .type--steel     { background: #b7b7ce; color: #333; }
 .type--fairy     { background: #d685ad; color: #333; }
+
+
+/* Centered search bar */
+.searchbar-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.searchbar-wrap .input {
+  width: 350px;
+  max-width: 90%;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  background: #f9f9f9;
+  transition: 0.2s;
+}
+
+.searchbar-wrap .input:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(100, 180, 255, 0.7);
+}
+
+/* Centered filter buttons in gallery */
+.filters-center {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 1rem 0 1.5rem;
+}
+
+.chipwrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.chip {
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  border: none;
+  background: #ececec;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.chip:hover {
+  background: #d8f3ff;
+}
+
+.chip--active {
+  background: #007bff;
+  color: white;
+  font-weight: 600;
+}
+
+

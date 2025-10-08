@@ -1,0 +1,106 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+  padding: 1rem .75rem;
+  background: #101427;               /* dark bar */
+  border-bottom: 1px solid #242844;  /* subtle line */
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .25);
+}
+
+/* Title */
+.brand {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: .5px;
+  color: #6ee7f2; /* cyan accent */
+  text-shadow: 0 1px 0 rgba(255,255,255,.05);
+}
+
+/* Button row (centered) */
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem; /* space between buttons */
+  flex-wrap: wrap;
+}
+
+/* Base button styles */
+.nav-btn {
+  --btn-bg-from: #6ee7f2;
+  --btn-bg-to:   #3b82f6;
+  --btn-text:    #062329;
+
+  display: inline-block;
+  text-decoration: none;
+  user-select: none;
+  padding: .55rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: .2px;
+  color: var(--btn-text);
+  background: linear-gradient(135deg, var(--btn-bg-from), var(--btn-bg-to));
+  box-shadow:
+    0 0 0 1px rgba(110, 231, 242, .30) inset,
+    0 6px 18px rgba(59, 130, 246, .25),
+    0 1px 0 rgba(255,255,255,.06) inset;
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+}
+
+/* Hover/Focus */
+.nav-btn:hover,
+.nav-btn:focus {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(110, 231, 242, .45) inset,
+    0 10px 22px rgba(59, 130, 246, .35),
+    0 1px 0 rgba(255,255,255,.08) inset;
+  outline: none;
+  filter: brightness(1.02);
+}
+
+/* Active route (from NavLink) */
+.nav-btn.active {
+  --btn-bg-from: #facc15; /* amber */
+  --btn-bg-to:   #f97316; /* orange */
+  --btn-text:    #1a1a1a;
+
+  box-shadow:
+    0 0 0 1px rgba(250, 204, 21, .45) inset,
+    0 10px 22px rgba(249, 115, 22, .35),
+    0 1px 0 rgba(255,255,255,.08) inset;
+}
+
+/* High-contrast focus ring (keyboard users) */
+.nav-btn:focus-visible {
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, .5),
+    0 8px 18px rgba(99, 102, 241, .25);
+}
+
+/* Responsive: tighter padding on small screens */
+@media (max-width: 480px) {
+  .nav {
+    padding: .75rem .5rem;
+    gap: .5rem;
+  }
+  .brand { font-size: 1.15rem; }
+  .nav-buttons { gap: .75rem; }
+  .nav-btn { padding: .5rem 1rem; font-size: .95rem; }
+}
+
+/* Optional: light theme support (if you toggle a parent class) */
+.light .nav {
+  background: #ffffff;
+  border-bottom-color: #e5e7eb;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+}
+.light .brand { color: #0ea5e9; }
+.light .nav-btn { --btn-text: #042326; }

@@ -56,8 +56,7 @@ export default function GalleryView() {
 
   return (
     <div className="container">
-      <h2>Gallery View</h2>
-      <p>Select one or more types to filter the grid.</p>
+      <h2>gallery</h2>
       <TypeFilters selected={types} onToggle={toggle} />
 
       {loading ? (

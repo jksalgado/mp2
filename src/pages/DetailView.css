@@ -1,0 +1,156 @@
+/* ===== Pokémon Detail View ===== */
+
+.detail-container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  color: #e9ecf1;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  background: #0e1120;
+  color: #e9ecf1;
+  border: 1px solid #2a2f52;
+  padding: 0.45rem 0.75rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover:not(:disabled) {
+  background: #6ee7f2;
+  color: #062329;
+}
+
+.nav-arrows {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Main card */
+.detail-card {
+  background: #474b64;
+  border: 1px solid #242844;
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.detail-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-image img {
+  width: 300px;
+  max-width: 100%;
+  background: #0e1120;
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid #2a2f52;
+}
+
+.detail-info h2 {
+  margin-top: 0;
+  color: #6ee7f2;
+}
+
+/* Types */
+.detail-types {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+/* Abilities + Stats */
+.detail-abilities, .detail-stats, .detail-stats-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.detail-stats li {
+  margin-bottom: 0.3rem;
+}
+
+.detail-stats-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.stat-name {
+  text-transform: capitalize;
+  width: 90px;
+}
+
+.stat-bar-wrap {
+  flex: 1;
+  background: #0e1120;
+  border-radius: 10px;
+  height: 10px;
+  overflow: hidden;
+  border: 1px solid #2a2f52;
+}
+
+.stat-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #6ee7f2, #3b82f6);
+  border-radius: 10px;
+}
+
+.stat-value {
+  width: 40px;
+  text-align: right;
+}
+
+@media (min-width: 900px) {
+  .detail-card {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
+
+/* Inline abilities row */
+.detail-stats.meta {
+  margin-bottom: 1.5rem;
+}
+
+.ability-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: baseline;
+}
+
+.ability-line strong {
+  font-weight: 700;
+  color: #e9ecf1;
+}
+
+.ability-list {
+  color: #cbd5e1;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.stats-heading {
+  font-weight: 700;
+  color: #e9ecf1;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #2a2f52;
+  padding-bottom: 0.25rem;
+}
